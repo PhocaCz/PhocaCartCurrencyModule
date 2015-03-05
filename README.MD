@@ -1,0 +1,1 @@
+Phoca Cart Currency Module is Joomla! CMS extension. Module which displays currency select form in module position.
