@@ -1,0 +1,19 @@
+{
+	"author": "Jan Pavelka (www.phoca.cz)",
+	"authorUrl": "https://www.phoca.cz",
+	"copyright": "Jan Pavelka",
+	"license": "GNU/GPL",
+	"projectName": "PhocaCartCurrencyModule",
+	"extensionName": "Phoca Cart Currency Module",
+	"projectInitials" : "PC",				  
+	"description": "Phoca Cart Currency Module - a Joomla! CMS module which displays currency selector for Phoca Cart component in module position.",
+	"projectUrl": "https://www.phoca.cz/phoca-cart-currency-module",
+	"projectDocumentationUrl": "https://www.phoca.cz/documentation/category/119-phoca-cart-currency-module",
+	"projectMainComponent": "Phoca Cart",
+	"projectMainComponentInfoUrl": "https://www.phoca.cz/project/phocacart-joomla-ecommerce",
+	"projectDemo" : {
+		"Joomla! - Phoca Cart Demo": "https://www.phoca.cz/phocacartdemo/",
+		"Joomla! - Phoca Cart - Phoca Premiere Template Demo": "https://www.phoca.cz/phocacartdemo/premiere/"
+	},
+	"projectColor": "#129ed9"
+}

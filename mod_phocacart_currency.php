@@ -7,14 +7,17 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
  
-defined('_JEXEC') or die('Restricted access');// no direct access
+defined('_JEXEC') or die;// no direct access
 
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 	$app = JFactory::getApplication();
 	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
 	return;
 }
-if (! class_exists('PhocaCartLoader')) {
+
+JLoader::registerPrefix('Phocacart', JPATH_ADMINISTRATOR . '/components/com_phocacart/libraries/phocacart');
+/*
+if (! class_exists('PhocacartLoader')) {
     require_once( JPATH_ADMINISTRATOR.'/components/com_phocacart/libraries/loader.php');
 }
 
@@ -23,7 +26,9 @@ phocacartimport('phocacart.utils.utils');
 phocacartimport('phocacart.path.path');
 phocacartimport('phocacart.path.route');
 phocacartimport('phocacart.currency.currency');
-phocacartimport('phocacart.price.price');
+phocacartimport('phocacart.price.price');*/
+
+$moduleclass_sfx 					= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 
 $lang = JFactory::getLanguage();
 //$lang->load('com_phocacart.sys');
@@ -35,24 +40,19 @@ $document				= JFactory::getDocument();
 
 $paramsC 			= JComponentHelper::getParams('com_phocacart') ;
 $load_chosen 		= $paramsC->get( 'load_chosen', 1 );
-if ($load_chosen == 1) {
-	JHtml::_('jquery.framework', false);
-	$document->addScript(JURI::root(true).'/media/com_phocacart/bootstrap/js/bootstrap.min.js');
-	$document->addScript(JURI::root(true).'/media/com_phocacart/js/chosen/chosen.jquery.min.js');
-	$js = "\n". 'jQuery(document).ready(function(){';
-	$js .= '   jQuery(".chosen-select").chosen({disable_search_threshold: 10});'."\n";	
-	$js .= '});'."\n";
-	$document->addScriptDeclaration($js);
-	JHTML::stylesheet( 'media/com_phocacart/js/chosen/chosen.css' );
-	JHTML::stylesheet( 'media/com_phocacart/js/chosen/chosen-bootstrap.css' );
-}
-$uri 			= JFactory::getURI();
+
+$media = new PhocacartRenderMedia();
+$media->loadChosen($load_chosen);
+$uri 			= \Joomla\CMS\Uri\Uri::getInstance();
 $action			= $uri->toString();
 $actionBase64	= base64_encode($action);
-$linkCheckout	= JRoute::_(PhocaCartRoute::getCheckoutRoute());
-//$currency 		= new PhocaCartCurrency();
+$linkCheckout	= JRoute::_(PhocacartRoute::getCheckoutRoute());
+//$currency 		= new PhocacartCurrency();
 //$selectBox 		= $currency->getCurrenciesSelectBox();
-$selectBox 		= PhocaCartCurrency::getCurrenciesSelectBox();
+$selectBox 		= PhocacartCurrency::getCurrenciesSelectBox();
+$currArray		= PhocacartCurrency::getCurrenciesArray();
+//$selectBox 		= PhocacartCurrency::getCurrenciesArray();
+//$selectBox 		= PhocacartCurrency::getCurrenciesListBox();
 
 require(JModuleHelper::getLayoutPath('mod_phocacart_currency'));
 ?>
