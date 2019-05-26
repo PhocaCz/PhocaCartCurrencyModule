@@ -54,7 +54,7 @@ Phoca Cart Currency Module - a Joomla! CMS module which displays currency select
 
 ## Version
 
-3.1.9
+3.2.0
 
 
 
