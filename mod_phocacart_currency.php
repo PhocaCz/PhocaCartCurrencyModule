@@ -6,7 +6,7 @@
  * @copyright Copyright (C) Jan Pavelka www.phoca.cz
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
- 
+
 defined('_JEXEC') or die;// no direct access
 
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
@@ -34,15 +34,21 @@ $lang = JFactory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
-JHTML::stylesheet('media/com_phocacart/css/main.css' );
+$media = new PhocacartRenderMedia();
+$media->loadBase();
+$media->loadBootstrap();
+$s = PhocacartRenderStyle::getStyles();
 
 $document				= JFactory::getDocument();
 
 $paramsC 			= JComponentHelper::getParams('com_phocacart') ;
 $load_chosen 		= $paramsC->get( 'load_chosen', 1 );
 
-$media = new PhocacartRenderMedia();
 $media->loadChosen($load_chosen);
+
+$media->loadSpec();
+
+
 $uri 			= \Joomla\CMS\Uri\Uri::getInstance();
 $action			= $uri->toString();
 $actionBase64	= base64_encode($action);
