@@ -30,24 +30,19 @@ phocacartimport('phocacart.price.price');*/
 
 $moduleclass_sfx 					= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 
+//$document			= JFactory::getDocument();
+// 			= JComponentHelper::getParams('com_phocacart') ;
+
 $lang = JFactory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
-$media = new PhocacartRenderMedia();
+$media = PhocacartRenderMedia::getInstance('main');
 $media->loadBase();
 $media->loadBootstrap();
-$s = PhocacartRenderStyle::getStyles();
-
-$document				= JFactory::getDocument();
-
-$paramsC 			= JComponentHelper::getParams('com_phocacart') ;
-$load_chosen 		= $paramsC->get( 'load_chosen', 1 );
-
-$media->loadChosen($load_chosen);
-
+$media->loadChosen();
 $media->loadSpec();
-
+$s = PhocacartRenderStyle::getStyles();
 
 $uri 			= \Joomla\CMS\Uri\Uri::getInstance();
 $action			= $uri->toString();
