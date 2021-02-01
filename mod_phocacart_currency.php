@@ -55,5 +55,5 @@ $currArray		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesListBox();
 
-require(JModuleHelper::getLayoutPath('mod_phocacart_currency'));
+require(JModuleHelper::getLayoutPath('mod_phocacart_currency', $params->get('layout', 'default')));
 ?>

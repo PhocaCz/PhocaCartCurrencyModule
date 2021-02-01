@@ -2,7 +2,7 @@
 
 
 
-![Phoca Cart Currency Module](https://github.com/PhocaCz/PhocaCartCurrencyModule/blob/master/mod_phocacart_currency.png)
+![Phoca Cart Currency Module](https://github.com/PhocaCz/PhocaCartCurrencyModule/blob/master/mod_phocacart_currency.png?raw=true)
 
 # Phoca Cart Currency Module
 
@@ -56,7 +56,7 @@ Phoca Cart Currency Module - a Joomla! CMS module which displays currency select
 
 ## Version
 
-3.5.4
+3.5.5
 
 
 
