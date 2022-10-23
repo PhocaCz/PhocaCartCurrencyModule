@@ -9,6 +9,8 @@
 
 defined('_JEXEC') or die;// no direct access
 
+/** @var \Joomla\Registry\Registry $params */
+
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 	$app = JFactory::getApplication();
 	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
@@ -48,9 +50,7 @@ $uri 			= \Joomla\CMS\Uri\Uri::getInstance();
 $action			= $uri->toString();
 $actionBase64	= base64_encode($action);
 $linkCheckout	= JRoute::_(PhocacartRoute::getCheckoutRoute());
-//$currency 		= new PhocacartCurrency();
-//$selectBox 		= $currency->getCurrenciesSelectBox();
-$selectBox 		= PhocacartCurrency::getCurrenciesSelectBox();
+$selectBox 		= PhocacartCurrency::getCurrenciesSelectBox($params->get('show_button', true) ? '' : 'onchange="this.form.submit();"');
 $currArray		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesListBox();
