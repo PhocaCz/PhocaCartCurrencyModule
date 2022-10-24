@@ -70,7 +70,9 @@ echo '<input type="hidden" name="tmpl" value="component" />';
 echo '<input type="hidden" name="option" value="com_phocacart" />';
 echo '<input type="hidden" name="return" value="'.$actionBase64.'" />';
 echo '<div class="'.$s['c']['pull-right'].' ph-input-select-currencies-button">';
-echo '<button class="btn btn-primary btn-sm ph-btn"><span class="'.$s['i']['refresh'].'"></span> '.JText::_('COM_PHOCACART_CHANGE_CURRENCY').'</button>';
+if ($params->get('show_button', true)) {
+  echo '<button class="btn btn-primary btn-sm ph-btn"><span class="' . $s['i']['refresh'] . '"></span> ' . JText::_('COM_PHOCACART_CHANGE_CURRENCY') . '</button>';
+}
 echo '</div>';
 echo Joomla\CMS\HTML\HTMLHelper::_('form.token');
 echo '</form>';

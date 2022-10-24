@@ -9,6 +9,11 @@
 
 defined('_JEXEC') or die;// no direct access
 
+use Joomla\CMS\Factory;
+use Joomla\CMS\Helper\ModuleHelper;
+
+/** @var \Joomla\Registry\Registry $params */
+
 if (!JComponentHelper::isEnabled('com_phocacart', true)) {
 	$app = JFactory::getApplication();
 	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
@@ -48,9 +53,23 @@ $uri 			= \Joomla\CMS\Uri\Uri::getInstance();
 $action			= $uri->toString();
 $actionBase64	= base64_encode($action);
 $linkCheckout	= JRoute::_(PhocacartRoute::getCheckoutRoute());
-//$currency 		= new PhocacartCurrency();
-//$selectBox 		= $currency->getCurrenciesSelectBox();
-$selectBox 		= PhocacartCurrency::getCurrenciesSelectBox();
+
+$session 	= Factory::getApplication()->getSession();
+$activeCurrency	= (int)$session->get('currency', PhocacartCurrency::getDefaultCurrency(), 'phocaCart');
+$cacheid = md5($module->id . '-' . $activeCurrency);
+
+$cacheparams               = new \stdClass();
+$cacheparams->cachemode    = 'id';
+$cacheparams->class        = '\PhocacartCurrency';
+$cacheparams->method       = 'getCurrenciesSelectBox';
+$cacheparams->methodparams = [
+	$params->get('show_button', true) ? '' : 'onchange="this.form.submit();"'
+];
+$cacheparams->modeparams   = $cacheid;
+
+$selectBox     = ModuleHelper::moduleCache($module, $params, $cacheparams);
+//$selectBox 		= PhocacartCurrency::getCurrenciesSelectBox($params->get('show_button', true) ? '' : 'onchange="this.form.submit();"');
+
 $currArray		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesListBox();
