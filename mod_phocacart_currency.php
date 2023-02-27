@@ -33,7 +33,7 @@ phocacartimport('phocacart.path.route');
 phocacartimport('phocacart.currency.currency');
 phocacartimport('phocacart.price.price');*/
 
-$moduleclass_sfx 					= htmlspecialchars($params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
+$moduleclass_sfx 					= htmlspecialchars((string)$params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 
 //$document			= JFactory::getDocument();
 // 			= JComponentHelper::getParams('com_phocacart') ;
