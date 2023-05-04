@@ -23,18 +23,19 @@
 		<description><![CDATA[ Phoca Cart Currency Module - a Joomla! CMS module which displays currency selector for Phoca Cart component in module position. ]]></description>
 		<element>mod_phocacart_currency</element>
 		<type>module</type>
-		<version>4.0.0</version>
-		<infourl title="Phoca Cart Currency Module 4.0.0">https://www.phoca.cz/</infourl>
+		<version>4.0.7</version>
+		<infourl title="Phoca Cart Currency Module 4.0.7">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCurrencyModule/releases/download/4.0.0/mod_phocacart_currency_v4.0.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCurrencyModule/releases/download/4.0.7/mod_phocacart_currency_v4.0.7.zip</downloadurl>
 		</downloads>
+		<sha512>5b9bb556a35f8c407ce3df4b17e627668e806a89df4806f5fda8504ffcc9b674b8b6ddd88ec81639230bcd8e4ce4ba45e3d8b1eeca5cc87ba43dd0bfc6679a5c</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
 		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
-		<targetplatform name="joomla" version="4.[0]"/>
+		<targetplatform name="joomla" version="4.[012]"/>
 		<client>site</client>
 	</update>
 </updates>
