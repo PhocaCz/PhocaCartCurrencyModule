@@ -7,11 +7,13 @@
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
  */
 defined('_JEXEC') or die;
+use Joomla\CMS\Language\Text;
+
 
 // Alternative View in e.g. position 22
 /*
 //$item 		= '<span class="'.$s['i']['globe'].'"></span>';// globe icon
-$item 		= JText::_('COM_PHOCACART_CURRENCY');// currency string
+$item 		= Text::_('COM_PHOCACART_CURRENCY');// currency string
 $item		= '';
 $count 		= count($currArray);// count of currencies
 
@@ -22,7 +24,7 @@ if (!empty($currArray)) {
 	foreach($currArray as $k => $v) {
 		$image = '';
 		if (isset($v->image) && $v->image != '') {
-			$image = '<img class="ph-currency-image-list" src="'.JURI::base(true). '/' . $v->image.'" alt="'.$v->code.'" />';
+			$image = '<img class="ph-currency-image-list" src="'.URI::base(true). '/' . $v->image.'" alt="'.$v->code.'" />';
 		}
 
 		if ($v->active == 1) {
@@ -71,7 +73,7 @@ echo '<input type="hidden" name="option" value="com_phocacart" />';
 echo '<input type="hidden" name="return" value="'.$actionBase64.'" />';
 echo '<div class="'.$s['c']['pull-right'].' ph-input-select-currencies-button">';
 if ($params->get('show_button', true)) {
-  echo '<button class="btn btn-primary btn-sm ph-btn"><span class="' . $s['i']['refresh'] . '"></span> ' . JText::_('COM_PHOCACART_CHANGE_CURRENCY') . '</button>';
+  echo '<button class="btn btn-primary btn-sm ph-btn"><span class="' . $s['i']['refresh'] . '"></span> ' . Text::_('COM_PHOCACART_CHANGE_CURRENCY') . '</button>';
 }
 echo '</div>';
 echo Joomla\CMS\HTML\HTMLHelper::_('form.token');

@@ -1,3 +1,4 @@
+<?xml version="1.0" ?>
 <updates>
 	<update>
 		<name><![CDATA[ Phoca Cart Currency Module ]]></name>
@@ -23,19 +24,20 @@
 		<description><![CDATA[ Phoca Cart Currency Module - a Joomla! CMS module which displays currency selector for Phoca Cart component in module position. ]]></description>
 		<element>mod_phocacart_currency</element>
 		<type>module</type>
-		<version>4.0.7</version>
-		<infourl title="Phoca Cart Currency Module 4.0.7">https://www.phoca.cz/</infourl>
+		<version>4.0.9</version>
+		<infourl title="Phoca Cart Currency Module 4.0.9">https://www.phoca.cz/</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCurrencyModule/releases/download/4.0.7/mod_phocacart_currency_v4.0.7.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/PhocaCz/PhocaCartCurrencyModule/releases/download/4.0.9/mod_phocacart_currency_v4.0.9.zip</downloadurl>
 		</downloads>
-		<sha512>2ced5aae1c284b8c0f59c991e228e81f9a380dfdb0d830423a1937191ac228da1693a82ac2fad4c1f4f72f116a50503a8f5a9f81137d13a2cbf1712e78b21c41</sha512>
+		<sha512>e55b5390967a32d717cd2a442b5738730a12284a341e898a42815ada506d3890c07ad8139ab3e46c71ecf1836f5f15d4b7abf355ba196c7b374599f7d1b89422</sha512>
 		<tags>
 			<tag>stable</tag>
 		</tags>
 		<maintainer><![CDATA[ Phoca.cz ]]></maintainer>
 		<maintainerurl>https://www.phoca.cz/</maintainerurl>
 		<section>Updates</section>
-		<targetplatform name="joomla" version="4.[012]"/>
+		<targetplatform name="joomla" version="4\.*"/>
 		<client>site</client>
 	</update>
+
 </updates>

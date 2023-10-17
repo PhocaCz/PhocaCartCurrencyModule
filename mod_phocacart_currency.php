@@ -8,15 +8,17 @@
  */
 
 defined('_JEXEC') or die;// no direct access
-
+use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Language\Text;
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Router\Route;
 
 /** @var \Joomla\Registry\Registry $params */
 
-if (!JComponentHelper::isEnabled('com_phocacart', true)) {
-	$app = JFactory::getApplication();
-	$app->enqueueMessage(JText::_('Phoca Cart Error'), JText::_('Phoca Cart is not installed on your system'), 'error');
+if (!ComponentHelper::isEnabled('com_phocacart', true)) {
+	$app = Factory::getApplication();
+	$app->enqueueMessage(Text::_('Phoca Cart Error'), Text::_('Phoca Cart is not installed on your system'), 'error');
 	return;
 }
 
@@ -35,10 +37,10 @@ phocacartimport('phocacart.price.price');*/
 
 $moduleclass_sfx 					= htmlspecialchars((string)$params->get('moduleclass_sfx'), ENT_COMPAT, 'UTF-8');
 
-//$document			= JFactory::getDocument();
-// 			= JComponentHelper::getParams('com_phocacart') ;
+//$document			= Factory::getDocument();
+// 			= ComponentHelper::getParams('com_phocacart') ;
 
-$lang = JFactory::getLanguage();
+$lang = Factory::getLanguage();
 //$lang->load('com_phocacart.sys');
 $lang->load('com_phocacart');
 
@@ -52,7 +54,7 @@ $s = PhocacartRenderStyle::getStyles();
 $uri 			= \Joomla\CMS\Uri\Uri::getInstance();
 $action			= $uri->toString();
 $actionBase64	= base64_encode($action);
-$linkCheckout	= JRoute::_(PhocacartRoute::getCheckoutRoute());
+$linkCheckout	= Route::_(PhocacartRoute::getCheckoutRoute());
 
 $session 	= Factory::getApplication()->getSession();
 $activeCurrency	= (int)$session->get('currency', PhocacartCurrency::getDefaultCurrency(), 'phocaCart');
@@ -74,5 +76,5 @@ $currArray		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesArray();
 //$selectBox 		= PhocacartCurrency::getCurrenciesListBox();
 
-require(JModuleHelper::getLayoutPath('mod_phocacart_currency', $params->get('layout', 'default')));
+require(ModuleHelper::getLayoutPath('mod_phocacart_currency', $params->get('layout', 'default')));
 ?>
